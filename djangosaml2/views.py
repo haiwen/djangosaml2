@@ -181,7 +181,7 @@ def login(request,
             sig_alg_option_map = {'sha1': SIG_RSA_SHA1,
                                   'sha256': SIG_RSA_SHA256}
             sig_alg_option = getattr(conf, '_sp_authn_requests_signed_alg', 'sha1')
-            sigalg = sig_alg_option_map[sig_alg_option] if sign_requests else None
+            sigalg = sig_alg_option_map[sig_alg_option] #if sign_requests else None
             session_id, result = client.prepare_for_authenticate(
                 entityid=selected_idp, relay_state=came_from,
                 binding=binding, sign=False, sigalg=sigalg)
